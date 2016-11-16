@@ -14,24 +14,8 @@ This is just a template bot and it doesn't have much commands to show.
 For more complex example see
 [telegram_bot_app](https://github.com/telegram-bot-rb/telegram_bot_app).
 
-#### Note about using Rails by default
-
-I thought about creating similar boilerplate for non-Rails application,
-but here are some advantages of Rails:
-
-- First of all is hot reload.
-- Bootstrap system with configuration files and initializers.
-- Atoloading classes.
-- A lot of tools and integrations.
-- And a lot more.
-
-While the only disadvantage I see is that it may be to fat by default.
-However this is not critical: middleware stack can be simply cleared from unused items,
-and unused railties can be simply removed.
-
-I you still think that using Rails is an overkill for simple bot app,
-for the last resort you can just use custom `config.ru` with
-little stack for production.
+For non-Rails app here is
+[another example](https://github.com/telegram-bot-rb/telegram-bot/wiki/Non-rails-application).
 
 ## Setup
 
