@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -31,7 +31,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'telegram-bot'
+# gem 'telegram-bot'
+gem 'telegram-bot', github: 'telegram-bot-rb/telegram-bot', ref: '1098118'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-its'
