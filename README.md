@@ -28,15 +28,17 @@ rails new telegram_bot_rails_api \
 ## After setup:
 
 - Add this lines to `bin/setup`:
-
-    puts "\n== Copying sample files =="
-    system 'bin/copy_samples'
+  ```ruby
+  puts "\n== Copying sample files =="
+  system 'bin/copy_samples'
+  ```
 
 - Setup bot config in `config/secrets.yml`.
 
 - Uncomment this line in `spec/rails_helper.rb`:
-
-    Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  ```ruby
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  ```
 
 - _Optional._ Uncomment default configuration in `spec/spec_helper.rb`.
 
@@ -52,8 +54,9 @@ rails new telegram_bot_rails_api \
 ### Receiving webhooks
 
 - Setup domain in `config/environments/production.yml`:
-
-    config.routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
+  ```ruby
+  config.routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
+  ```
 
 - Deploy as usual Rails app.
 
@@ -68,6 +71,7 @@ You can simply run a rake task, or use something like this:
 #!/usr/bin/env ruby
 
 begin
+  ENV['BOT_POLLER_MODE'] = 'true'
   require_relative '../config/environment'
   Telegram::Bot::UpdatesPoller.start(ENV['BOT'].try!(:to_sym) || :default)
 rescue Exception => e
@@ -76,7 +80,9 @@ rescue Exception => e
 end
 ```
 
-And then use `capistrano-daemonize` or any `capistrano-foreman` to run it.
+And define custom capistrano tasks or something else to run it.
+
+There is sample task in this repo in `lib/capistrano/tasks/telegram_bot.rake`.
 
 ## License
 

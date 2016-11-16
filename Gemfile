@@ -33,6 +33,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'telegram-bot'
 gem 'telegram-bot', github: 'telegram-bot-rb/telegram-bot', ref: '1098118'
+gem 'daemons', require: false
 
 group :development, :test do
   gem 'rspec-rails'

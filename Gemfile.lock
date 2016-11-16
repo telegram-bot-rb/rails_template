@@ -54,6 +54,7 @@ GEM
     byebug (9.0.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
+    daemons (1.2.4)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.14)
@@ -171,6 +172,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   byebug
+  daemons
   hirb
   listen (~> 3.0.5)
   pry
