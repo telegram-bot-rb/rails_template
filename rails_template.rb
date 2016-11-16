@@ -17,6 +17,14 @@ end
 
 run 'bundle install'
 
+after_bundle { puts <<-TXT }
+
+There are some required actions after setup. See:
+
+  https://github.com/telegram-bot-rb/rails_template
+
+TXT
+
 ### Basics
 
 file 'bin/copy_samples', <<-'RUBY'
