@@ -111,7 +111,7 @@ YML
 
 environment <<-RUBY, env: :production
 # Set application domain, to be able to run `rake telegram:bot:set_webhook`
-  # config.routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
+# routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
 RUBY
 
 file 'spec/support/telegram_bot.rb', <<-RUBY

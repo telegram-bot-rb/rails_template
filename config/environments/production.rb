@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Set application domain, to be able to run `rake telegram:bot:set_webhook`
-  # config.routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
+  # routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
 
   # Settings specified here will take precedence over those in config/application.rb.
 
