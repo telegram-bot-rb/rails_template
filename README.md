@@ -62,7 +62,7 @@ rails new app_name \
 
 - Setup domain in `config/environments/production.yml`:
   ```ruby
-  config.routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
+  routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
   ```
 
 - Deploy as usual Rails app.
