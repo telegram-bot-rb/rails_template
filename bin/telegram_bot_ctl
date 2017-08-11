@@ -3,4 +3,4 @@
 require 'daemons'
 Daemons.run File.join(__dir__, 'telegram_bot'),
   monitor: true,
-  dir: '../tmp'
+  dir: '../tmp/pids'
