@@ -49,6 +49,10 @@ rails new app_name \
 
 - _Optional._ Uncomment default configuration in `spec/spec_helper.rb`.
 
+- _Optional._ If you don't use ActiveRecord,
+  you may want to remove `config/database.yml` line from `bin/copy_samples`
+  and `.gitignore`.
+
 ## Development
 
     bin/rails telegram:bot:poller
