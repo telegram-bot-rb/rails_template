@@ -52,7 +52,10 @@ end
 RUBY
 
 run 'chmod +x bin/copy_samples'
-run 'echo "\nconfig/secrets.yml" >> .gitignore'
+run 'echo "\nconfig/database.yml" >> .gitignore'
+run 'echo "config/secrets.yml" >> .gitignore'
+
+run 'cp config/database.yml config/database.sample.yml'
 
 file 'config/secrets.sample.yml', <<-YML
 development: &dev
@@ -88,7 +91,7 @@ file '.rspec', <<-TXT
 --require rails_helper
 TXT
 
-run 'echo "spec/examples.txt" >> .gitignore'
+run 'echo "\nspec/examples.txt" >> .gitignore'
 
 ### Bot
 

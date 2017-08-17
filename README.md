@@ -56,6 +56,8 @@ rails new app_name \
 ## Deployment
 
 - Edit capistrano config.
+- Make sure to add `config/secrets.yml` (and `config/database.yml` if exists)
+  to shared folder on servers.
 - Choose one of deployment ways:
 
 ### Receiving webhooks
