@@ -66,7 +66,7 @@ rails new app_name \
 
 ### Receiving webhooks
 
-- Setup domain in `config/environments/production.yml`:
+- Setup domain in `config/environments/production.rb`:
   ```ruby
   routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
   ```
