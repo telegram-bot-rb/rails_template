@@ -62,41 +62,7 @@ rails new app_name \
 - Edit capistrano config.
 - Make sure to add `config/secrets.yml` (and `config/database.yml` if exists)
   to shared folder on servers.
-- Choose one of deployment ways:
-
-### Receiving webhooks
-
-- Setup domain in `config/environments/production.rb`:
-  ```ruby
-  routes.default_url_options = {host: 'yourdomain.com', protocol: 'https'}
-  ```
-
-- Deploy as usual Rails app.
-
-### Poller
-
-This is an easier way, though not the 'right' one.
-You can simply run a rake task, or use something like this:
-
-```ruby
-# bin/telegram_bot
-
-#!/usr/bin/env ruby
-
-begin
-  ENV['BOT_POLLER_MODE'] = 'true'
-  require_relative '../config/environment'
-  Telegram::Bot::UpdatesPoller.start(ENV['BOT'].try!(:to_sym) || :default)
-rescue Exception => e
-  Rollbar.report_exception(e) if defined?(Rollbar) && !e.is_a?(SystemExit)
-  raise
-end
-```
-
-And define custom capistrano tasks or something else to run it.
-
-There is sample task to manage such daemon in this repo
-at `lib/capistrano/tasks/telegram_bot.rake`.
+- See instructions in [wiki](https://github.com/telegram-bot-rb/telegram-bot/wiki/Deployment)
 
 ## License
 
