@@ -1,5 +1,5 @@
 ### Gems
-gem 'telegram-bot'
+gem 'telegram-bot', '>= 0.14'
 
 gem_group :development, :test do
   gem 'rspec-rails'
@@ -95,11 +95,11 @@ run 'echo "\nspec/examples.txt" >> .gitignore'
 
 ### Bot
 
-route 'telegram_webhooks TelegramWebhooksController'
+route 'telegram_webhook TelegramWebhooksController'
 
 file 'app/controllers/telegram_webhooks_controller.rb', <<-RUBY
 class TelegramWebhooksController < Telegram::Bot::UpdatesController
-  def start(*)
+  def start!(*)
     respond_with :message, text: t('.hi')
   end
 end
@@ -118,7 +118,7 @@ environment <<-RUBY, env: :production
 RUBY
 
 file 'spec/support/telegram_bot.rb', <<-RUBY
-require 'telegram/bot/rspec/integration'
+require 'telegram/bot/rspec/integration/rails'
 RSpec.configuration.after { Telegram.bot.reset }
 RUBY
 
@@ -128,9 +128,9 @@ environment <<-RUBY, env: :test
 RUBY
 
 file 'spec/requests/telegram_webhooks_spec.rb', <<-RUBY
-RSpec.describe TelegramWebhooksController, :telegram_bot do
-  describe '#start' do
-    subject { -> { dispatch_message '/start' } }
+RSpec.describe TelegramWebhooksController, telegram_bot: :rails do
+  describe '#start!' do
+    subject { -> { dispatch_command :start } }
     it { should respond_with_message 'Hi there!' }
   end
 end
