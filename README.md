@@ -19,7 +19,7 @@ For non-Rails app here is
 
 ## Setup
 
-Here is a command to generate smalles possible installation of rails.
+Here is a command to generate smallest possible installation of rails.
 Choose yourself what railties to enable:
 
 ```
