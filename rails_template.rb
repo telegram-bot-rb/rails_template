@@ -1,5 +1,5 @@
 ### Gems
-gem 'telegram-bot', '>= 0.14'
+gem 'telegram-bot', '>= 0.15'
 
 gem_group :development, :test do
   gem 'rspec-rails'
